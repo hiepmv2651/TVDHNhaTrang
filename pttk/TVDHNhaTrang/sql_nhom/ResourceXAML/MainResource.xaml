@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:sql_nhom.ViewModel">
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+
+    <viewmodel:SachViewModel x:Key="UnitVM"></viewmodel:SachViewModel>
+
+    <viewmodel:CTPhieuMuonViewModel x:Key="SuplierVM"></viewmodel:CTPhieuMuonViewModel>
+
+    <viewmodel:UserViewModel x:Key="UserVM"></viewmodel:UserViewModel>
+    <viewmodel:PhieuMuonViewModel x:Key="InVM"></viewmodel:PhieuMuonViewModel>
+    <viewmodel:CTNhacTraViewModel x:Key="OutVM"></viewmodel:CTNhacTraViewModel>
+    <viewmodel:DocGiaViewModel x:Key="DocgiaVM"></viewmodel:DocGiaViewModel>
+    <viewmodel:ThetvViewModel x:Key="ThetvVM"></viewmodel:ThetvViewModel>
+    <viewmodel:PhieuNTViewModel x:Key="XuatVM"></viewmodel:PhieuNTViewModel>
+</ResourceDictionary>

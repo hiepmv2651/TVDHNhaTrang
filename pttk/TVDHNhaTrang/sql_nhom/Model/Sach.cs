@@ -11,8 +11,9 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Sach
+    using sql_nhom.ViewModel;
+
+    public partial class Sach : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sach()
@@ -20,21 +21,43 @@ namespace sql_nhom.Model
             this.ChiTietNhacTras = new HashSet<ChiTietNhacTra>();
             this.ChiTietPhieuMuons = new HashSet<ChiTietPhieuMuon>();
         }
-    
-        public string MaSach { get; set; }
-        public string MaNXB { get; set; }
-        public string MaTL { get; set; }
-        public string MaTG { get; set; }
-        public string TenSach { get; set; }
-        public string TinhTrang { get; set; }
-        public Nullable<int> NamXB { get; set; }
+
+        private string _MaSach;
+        public string MaSach { get => _MaSach; set { _MaSach = value; OnPropertyChanged(); } }
+
+        private string _MaTL;
+        public string MaTL { get => _MaTL; set { _MaTL = value; OnPropertyChanged(); } }
+
+        private string _MaNXB;
+        public string MaNXB { get => _MaNXB; set { _MaNXB = value; OnPropertyChanged(); } }
+
+        private string _MaTG;
+        public string MaTG { get => _MaTG; set { _MaTG = value; OnPropertyChanged(); } }
+
+        private string _TenSach;
+        public string TenSach { get => _TenSach; set { _TenSach = value; OnPropertyChanged(); } }
+
+        private string _TinhTrang;
+        public string TinhTrang { get => _TinhTrang; set { _TinhTrang = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _NamXB;
+        public Nullable<int> NamXB { get => _NamXB; set { _NamXB = value; OnPropertyChanged(); } }
+
+        
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietNhacTra> ChiTietNhacTras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuMuon> ChiTietPhieuMuons { get; set; }
-        public virtual NhaXuatBan NhaXuatBan { get; set; }
-        public virtual TacGia TacGia { get; set; }
-        public virtual TheLoai TheLoai { get; set; }
+       
+
+        private NhaXuatBan _NhaXuatBan;
+        public virtual NhaXuatBan NhaXuatBan { get => _NhaXuatBan; set { _NhaXuatBan = value; OnPropertyChanged(); } }
+
+        private TacGia _TacGia;
+        public virtual TacGia TacGia { get => _TacGia; set { _TacGia = value; OnPropertyChanged(); } }
+
+        private TheLoai _TheLoai;
+        public virtual TheLoai TheLoai { get => _TheLoai; set { _TheLoai = value; OnPropertyChanged(); } }
     }
 }

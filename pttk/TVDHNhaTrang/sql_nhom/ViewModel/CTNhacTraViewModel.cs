@@ -76,14 +76,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedPNT == null || SelectedS == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.ChiTietNhacTras.Where(x => x.MaSach == SelectedS.MaSach);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {
@@ -129,12 +122,11 @@ namespace sql_nhom.ViewModel
 
             }, (p) =>
             {
-
                 var ctnhactra = DataProvider.Ins.DB.ChiTietNhacTras.Where(x => x.MaSach == SelectedS.MaSach).SingleOrDefault();
                 ctnhactra.MaSach = SelectedS.MaSach;
                 ctnhactra.SoPhieu = SelectedPNT.SoPhieu;
                 ctnhactra.DonGiaPhat = DonGiaPhat;
-                
+
                 DataProvider.Ins.DB.SaveChanges();
 
                 SelectedItem.DonGiaPhat = DonGiaPhat;

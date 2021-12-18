@@ -11,14 +11,25 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class ChiTietPhieuMuon
+    using sql_nhom.ViewModel;
+
+    public partial class ChiTietPhieuMuon : BaseViewModel
     {
-        public string MaPM { get; set; }
-        public string MaSach { get; set; }
-        public Nullable<decimal> SoLuong { get; set; }
-    
-        public virtual Sach Sach { get; set; }
-        public virtual PhieuMuon PhieuMuon { get; set; }
+        private string _MaPM;
+        public string MaPM { get => _MaPM; set { _MaPM = value; OnPropertyChanged(); } }
+
+        private string _MaSach;
+        public string MaSach { get => _MaSach; set { _MaSach = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _SoLuong;
+        public Nullable<int> SoLuong { get => _SoLuong; set { _SoLuong = value; OnPropertyChanged(); } }
+
+        private Sach _Sach;
+        public virtual Sach Sach { get => _Sach; set { _Sach = value; OnPropertyChanged(); } }
+
+        private PhieuMuon _PhieuMuon;
+        public virtual PhieuMuon PhieuMuon { get => _PhieuMuon; set { _PhieuMuon = value; OnPropertyChanged(); } }
+
+        
     }
 }

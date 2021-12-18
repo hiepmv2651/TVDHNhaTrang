@@ -11,8 +11,9 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TheThuVien
+    using sql_nhom.ViewModel;
+
+    public partial class TheThuVien : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TheThuVien()
@@ -20,12 +21,20 @@ namespace sql_nhom.Model
             this.PhieuMuons = new HashSet<PhieuMuon>();
             this.PhieuNhacTras = new HashSet<PhieuNhacTra>();
         }
-    
-        public string MaThe { get; set; }
-        public string MaDG { get; set; }
-        public Nullable<System.DateTime> NgayTao { get; set; }
-    
-        public virtual DocGia DocGia { get; set; }
+
+        private string _MaThe;
+        public string MaThe { get => _MaThe; set { _MaThe = value; OnPropertyChanged(); } }
+
+        private string _MaDG;
+        public string MaDG { get => _MaDG; set { _MaDG = value; OnPropertyChanged(); } }
+
+        private Nullable<System.DateTime> _NgayTao;
+        public Nullable<System.DateTime> NgayTao { get => _NgayTao; set { _NgayTao = value; OnPropertyChanged(); } }
+
+        private DocGia _DocGia;
+        public virtual DocGia DocGia { get => _DocGia; set { _DocGia = value; OnPropertyChanged(); } }
+
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuMuon> PhieuMuons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

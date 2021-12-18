@@ -105,14 +105,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedNXB == null || SelectedTL == null || SelectedTG == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.Saches.Where(x => x.MaSach == SelectedItem.MaSach);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {

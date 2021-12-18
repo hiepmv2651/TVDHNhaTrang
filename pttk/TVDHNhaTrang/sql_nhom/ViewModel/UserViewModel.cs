@@ -59,14 +59,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.NhanViens.Where(x => x.MaNV == SelectedItem.MaNV);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {

@@ -60,8 +60,8 @@ namespace sql_nhom.ViewModel
             }
         }
 
-        private decimal? _SoLuong;
-        public decimal? SoLuong { get => _SoLuong; set { _SoLuong = value; OnPropertyChanged(); } }
+        private int? _SoLuong;
+        public int? SoLuong { get => _SoLuong; set { _SoLuong = value; OnPropertyChanged(); } }
 
 
         
@@ -76,14 +76,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.ChiTietPhieuMuons.Where(x => x.MaPM == SelectedPM.MaPM);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {

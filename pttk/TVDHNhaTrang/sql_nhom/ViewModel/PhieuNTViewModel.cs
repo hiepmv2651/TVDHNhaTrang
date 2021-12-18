@@ -48,8 +48,8 @@ namespace sql_nhom.ViewModel
             }
         }
 
-        private decimal _SoPhieu;
-        public  decimal SoPhieu { get => _SoPhieu; set { _SoPhieu = value; OnPropertyChanged(); } }
+        private int _SoPhieu;
+        public  int SoPhieu { get => _SoPhieu; set { _SoPhieu = value; OnPropertyChanged(); } }
 
 
         private DateTime? _NgayLap;
@@ -67,14 +67,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedTTV == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.PhieuNhacTras.Where(x => x.SoPhieu == SelectedItem.SoPhieu);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {

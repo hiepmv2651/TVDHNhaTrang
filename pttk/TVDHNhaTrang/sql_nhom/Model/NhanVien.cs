@@ -11,8 +11,9 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class NhanVien
+    using sql_nhom.ViewModel;
+
+    public partial class NhanVien : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
@@ -20,11 +21,20 @@ namespace sql_nhom.Model
             this.PhieuMuons = new HashSet<PhieuMuon>();
         }
     
-        public string MaNV { get; set; }
-        public string TenNV { get; set; }
-        public string SDT_NV { get; set; }
-        public string MoTa { get; set; }
-    
+        
+
+        private string _MaNV;
+        public string MaNV { get => _MaNV; set { _MaNV = value; OnPropertyChanged(); } }
+
+        private string _TenNV;
+        public string TenNV { get => _TenNV; set { _TenNV = value; OnPropertyChanged(); } }
+
+        private string _SDT_NV;
+        public string SDT_NV { get => _SDT_NV; set { _SDT_NV = value; OnPropertyChanged(); } }
+
+        private string _MoTa;
+        public string MoTa { get => _MoTa; set { _MoTa = value; OnPropertyChanged(); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuMuon> PhieuMuons { get; set; }
     }

@@ -11,19 +11,28 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class NhaXuatBan
+    using sql_nhom.ViewModel;
+
+    public partial class NhaXuatBan : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhaXuatBan()
         {
             this.Saches = new HashSet<Sach>();
         }
-    
-        public string MaNXB { get; set; }
-        public string TenNXB { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT_NXB { get; set; }
+        private string _MaNXB;
+        public string MaNXB { get => _MaNXB; set { _MaNXB = value; OnPropertyChanged(); } }
+
+        private string _TenNXB;
+        public string TenNXB { get => _TenNXB; set { _TenNXB = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _SDT_NXB;
+        public string SDT_NXB { get => _SDT_NXB; set { _SDT_NXB = value; OnPropertyChanged(); } }
+
+        
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Saches { get; set; }

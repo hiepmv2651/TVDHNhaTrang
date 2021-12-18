@@ -11,18 +11,26 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class LoaiDoiTuong
+    using sql_nhom.ViewModel;
+
+    public partial class LoaiDoiTuong : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiDoiTuong()
         {
             this.DocGias = new HashSet<DocGia>();
         }
-    
-        public string MaDT { get; set; }
-        public string TenDT { get; set; }
-        public string MoTa { get; set; }
+
+        private string _MaDT;
+        public string MaDT { get => _MaDT; set { _MaDT = value; OnPropertyChanged(); } }
+
+        private string _TenDT;
+        public string TenDT { get => _TenDT; set { _TenDT = value; OnPropertyChanged(); } }
+
+        private string _MoTa;
+        public string MoTa { get => _MoTa; set { _MoTa = value; OnPropertyChanged(); } }
+
+        
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocGia> DocGias { get; set; }

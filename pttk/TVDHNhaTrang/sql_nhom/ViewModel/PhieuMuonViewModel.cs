@@ -68,8 +68,8 @@ namespace sql_nhom.ViewModel
         public DateTime? NgayMuon { get => _NgayMuon; set { _NgayMuon = value; OnPropertyChanged(); } }
 
 
-        private decimal? _SoNgayMuon;
-        public decimal? SoNgayMuon { get => _SoNgayMuon; set { _SoNgayMuon = value; OnPropertyChanged(); } }
+        private int? _SoNgayMuon;
+        public int? SoNgayMuon { get => _SoNgayMuon; set { _SoNgayMuon = value; OnPropertyChanged(); } }
 
         
 
@@ -85,14 +85,7 @@ namespace sql_nhom.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedNV == null || SelectedTTV == null)
-                    return false;
-
-                var displayList = DataProvider.Ins.DB.PhieuMuons.Where(x => x.MaPM == SelectedItem.MaPM);
-                if (displayList != null && displayList.Count() != 0)
-                    return true;
-
-                return false;
+                return true;
 
             }, (p) =>
             {

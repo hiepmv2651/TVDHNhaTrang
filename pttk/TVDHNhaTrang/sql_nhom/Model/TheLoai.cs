@@ -11,17 +11,23 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TheLoai
+    using sql_nhom.ViewModel;
+
+    public partial class TheLoai : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TheLoai()
         {
             this.Saches = new HashSet<Sach>();
         }
-    
-        public string MaTL { get; set; }
-        public string TenTL { get; set; }
+
+        private string _MaTL;
+        public string MaTL { get => _MaTL; set { _MaTL = value; OnPropertyChanged(); } }
+
+        private string _TenTL;
+        public string TenTL { get => _TenTL; set { _TenTL = value; OnPropertyChanged(); } }
+
+        
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Saches { get; set; }

@@ -11,21 +11,32 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PhieuNhacTra
+    using sql_nhom.ViewModel;
+
+    public partial class PhieuNhacTra : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PhieuNhacTra()
         {
             this.ChiTietNhacTras = new HashSet<ChiTietNhacTra>();
         }
-    
-        public decimal SoPhieu { get; set; }
-        public string MaThe { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
+
+        private int _SoPhieu;
+        public int SoPhieu { get => _SoPhieu; set { _SoPhieu = value; OnPropertyChanged(); } }
+
+        private string _MaThe;
+        public string MaThe { get => _MaThe; set { _MaThe = value; OnPropertyChanged(); } }
+
+        private Nullable<System.DateTime> _NgayLap;
+        public Nullable<System.DateTime> NgayLap { get => _NgayLap; set { _NgayLap = value; OnPropertyChanged(); } }
+
+        
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietNhacTra> ChiTietNhacTras { get; set; }
-        public virtual TheThuVien TheThuVien { get; set; }
+        
+
+        private TheThuVien _TheThuVien;
+        public virtual TheThuVien TheThuVien { get => _TheThuVien; set { _TheThuVien = value; OnPropertyChanged(); } }
     }
 }

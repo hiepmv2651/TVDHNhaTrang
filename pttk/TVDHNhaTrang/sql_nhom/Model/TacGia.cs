@@ -11,21 +11,32 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TacGia
+    using sql_nhom.ViewModel;
+
+    public partial class TacGia : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TacGia()
         {
             this.Saches = new HashSet<Sach>();
         }
-    
-        public string MaTG { get; set; }
-        public string TenTG { get; set; }
-        public string DiachiTG { get; set; }
-        public string CoQuanCongTac { get; set; }
-        public string SDT_TG { get; set; }
-    
+
+        private string _MaTG;
+        public string MaTG { get => _MaTG; set { _MaTG = value; OnPropertyChanged(); } }
+
+        private string _TenTG;
+        public string TenTG { get => _TenTG; set { _TenTG = value; OnPropertyChanged(); } }
+
+        private string _DiachiTG;
+        public string DiachiTG { get => _DiachiTG; set { _DiachiTG = value; OnPropertyChanged(); } }
+
+        private string _CoQuanCongTac;
+        public string CoQuanCongTac { get => _CoQuanCongTac; set { _CoQuanCongTac = value; OnPropertyChanged(); } }
+
+        private string _SDT_TG;
+        public string SDT_TG { get => _SDT_TG; set { _SDT_TG = value; OnPropertyChanged(); } }
+
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sach> Saches { get; set; }
     }

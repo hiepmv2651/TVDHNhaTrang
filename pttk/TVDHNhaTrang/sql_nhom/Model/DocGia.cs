@@ -11,24 +11,41 @@ namespace sql_nhom.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DocGia
+    using sql_nhom.ViewModel;
+
+    public partial class DocGia : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DocGia()
         {
             this.TheThuViens = new HashSet<TheThuVien>();
         }
-    
-        public string MaDG { get; set; }
-        public string MaDT { get; set; }
-        public string HoTenDG { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string GioiTinh { get; set; }
-        public string DiaChi { get; set; }
-        public string SoDT { get; set; }
-    
-        public virtual LoaiDoiTuong LoaiDoiTuong { get; set; }
+
+        private string _MaDG;
+        public string MaDG { get => _MaDG; set { _MaDG = value; OnPropertyChanged(); } }
+
+        private string _MaDT;
+        public string MaDT { get => _MaDT; set { _MaDT = value; OnPropertyChanged(); } }
+
+        private string _HoTenDG;
+        public string HoTenDG { get => _HoTenDG; set { _HoTenDG = value; OnPropertyChanged(); } }
+
+        private Nullable<System.DateTime> _NgaySinh;
+        public Nullable<System.DateTime> NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
+
+        private string _GioiTinh;
+        public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _SoDT;
+        public string SoDT { get => _SoDT; set { _SoDT = value; OnPropertyChanged(); } }
+
+        private LoaiDoiTuong _LoaiDoiTuong;
+        public virtual LoaiDoiTuong LoaiDoiTuong { get => _LoaiDoiTuong; set { _LoaiDoiTuong = value; OnPropertyChanged(); } }
+
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TheThuVien> TheThuViens { get; set; }
     }
